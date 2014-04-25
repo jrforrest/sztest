@@ -1,0 +1,37 @@
+---
+# Dynamic variables here will be compiled to individual files in compiled/attributes.
+attributes:
+  environment: production
+  ruby_version: 2.0.0
+  app_name: sztest
+  use_ssl: false
+  shared_path: /home/sztest/www/sztest/shared
+
+  unicorn_workers: 4
+  unicorn_working_directory: /home/sztest/www/sztest/current
+  unicorn_pid: /home/sztest/www/sztest/current/tmp/pids/unicorn.pid
+  unicorn_sock: /tmp/unicorn.sztest.sock
+  unicorn_config: /home/sztest/www/sztest/shared/config/unicorn.rb
+  unicorn_log: /home/sztest/www/sztest/shared/log/unicorn.log
+
+# Remote recipes here will be downloaded to compiled/recipes.
+recipes:
+  rvm: https://raw.github.com/kenn/sunzi-recipes/master/ruby/rvm.sh
+
+# Files specified here will be copied to compiled/files.
+# files:
+#   - ~/.ssh/id_rsa.pub
+
+# Fine tune how Sunzi should work.
+preferences:
+  # Erase the generated folder on the server after deploy.
+  # Turn on when you are done with testing and ready for production use.
+  erase_remote_folder: true
+
+  # Skip retrieving remote recipes when local copies already exist. This setting helps
+  # iterative deploy testing considerably faster, when you have a lot of remote recipes.
+  cache_remote_recipes: false
+
+  # Evaluate files as ERB templates. When enabled, you can pass dynamic values in the form
+  # of <%= @attributes.environment %> in recipes, roles, files and install.sh.
+  eval_erb: true

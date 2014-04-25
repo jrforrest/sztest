@@ -1,0 +1,7 @@
+# sztest
+
+Just trying out Sunzi.  This runs off of my fork of Sunzi since the mainline has some weird behavior I don't like.
+
+I started out with a basic user creation system and then ported some nginx and unicorn scripts over from an ansible config I had lying around.
+
+I think I'll abandon the effort here and go back to ansible because Sunzi makes some things really akward (facts/dynamic variables for one.)
